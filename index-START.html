@@ -64,7 +64,9 @@
   window.addEventListener('keydown', e => {
     // initialize audio with the audio element of a matching dataKey
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    console.log(audio);
+    // initialize key with the corresponding key element
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    console.log(key);
     // if audio does not exist for that dataKey, then exit the function
     if(!audio) return;
     // if audio does exist, then reset the play time of the audio 
