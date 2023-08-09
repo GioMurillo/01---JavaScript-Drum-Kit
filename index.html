@@ -77,11 +77,16 @@
   });
 
   function removeTransition(e) {
-    console.log(e);
+    //console.log(e); SHOW THE LIST OF PROPERTIES THAT WERE TRANSITIONED
+    if(e.propertyName !== 'transform') return; // skip it if it's not a transform
+    /*console.log(e.propertyName); IF TRANSITION IS LONGER THAN A SECOND,
+    YOU WILL BE ABLE TO SEE THAT TRANSFORM PROPERTY IS NOT INSTANT*/
+    this.classList.remove('playing'); //removes the playing class
+    //which changes the CSS properties
   }
 
   const keys = document.querySelectorAll('.key');
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition()));
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
   
 </script>
 
